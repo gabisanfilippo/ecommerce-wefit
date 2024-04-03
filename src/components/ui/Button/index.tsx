@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { MouseEvent, ReactNode } from "react";
 import * as S from "./style";
 
 export interface IButtonProps {
@@ -6,6 +6,7 @@ export interface IButtonProps {
   bgColor?: string;
   textColor?: string;
   text: string;
+  onClick?: (event: MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
 export const Button = ({
@@ -13,9 +14,10 @@ export const Button = ({
   bgColor = "#009EDD",
   textColor = "white",
   text,
+  onClick,
 }: IButtonProps) => {
   return (
-    <S.Button bgColor={bgColor} textColor={textColor}>
+    <S.Button bgColor={bgColor} textColor={textColor} onClick={onClick}>
       {icon}
       {text}
     </S.Button>
