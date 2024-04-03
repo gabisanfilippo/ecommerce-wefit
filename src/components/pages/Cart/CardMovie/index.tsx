@@ -48,7 +48,7 @@ export const CardMovie = ({ movieData }: ICardMovieProps) => {
       <S.Flex>
         <Button
           text=""
-          bgColor="transparent"
+          bgcolor="transparent"
           onClick={removeAmount}
           icon={<IconMinusSign />}
         />
@@ -60,7 +60,7 @@ export const CardMovie = ({ movieData }: ICardMovieProps) => {
         />
         <Button
           text=""
-          bgColor="transparent"
+          bgcolor="transparent"
           onClick={() => addAmount()}
           icon={<IconPlusSign />}
         />
@@ -90,7 +90,7 @@ export const CardMovie = ({ movieData }: ICardMovieProps) => {
 
         <Button
           text=""
-          bgColor="transparent"
+          bgcolor="transparent"
           onClick={removeItem}
           icon={<IconTrash />}
         />
@@ -117,7 +117,7 @@ export const CardMovie = ({ movieData }: ICardMovieProps) => {
         </S.InfoContainer>
         <Button
           text=""
-          bgColor="transparent"
+          bgcolor="transparent"
           onClick={removeItem}
           icon={<IconTrash />}
         />

@@ -3,21 +3,21 @@ import * as S from "./style";
 
 export interface IButtonProps {
   icon?: ReactNode;
-  bgColor?: string;
-  textColor?: string;
+  bgcolor?: string;
+  textcolor?: string;
   text: string;
   onClick?: (event: MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
 export const Button = ({
   icon,
-  bgColor = "#009EDD",
-  textColor = "white",
+  bgcolor = "#009EDD",
+  textcolor = "white",
   text,
   onClick,
 }: IButtonProps) => {
   return (
-    <S.Button bgColor={bgColor} textColor={textColor} onClick={onClick}>
+    <S.Button bgcolor={bgcolor} textcolor={textcolor} onClick={onClick}>
       {icon}
       {text}
     </S.Button>

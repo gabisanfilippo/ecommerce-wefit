@@ -15,6 +15,6 @@ export const Button = styled.button<Partial<IButtonProps>>`
   justify-content: center;
   gap: 12px;
 
-  background-color: ${({ bgColor }) => bgColor && bgColor};
-  color: ${({ textColor }) => textColor && textColor};
+  background-color: ${({ bgcolor }) => bgcolor && bgcolor};
+  color: ${({ textcolor }) => textcolor && textcolor};
 `;

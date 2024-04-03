@@ -62,7 +62,7 @@ export const CardAddMovie = ({ movieData }: ICardAddMovieProps) => {
       <Button
         text={"ADICIONAR AO CARRINHO"}
         onClick={addItemsToCart}
-        bgColor={handleButtonColor()}
+        bgcolor={handleButtonColor()}
         icon={
           <S.IconContainer>
             <IconAddCart />

@@ -57,7 +57,7 @@ export const Input = ({
       {showIcon && (
         <Button
           text=""
-          bgColor="transparent"
+          bgcolor="transparent"
           icon={<IconSearch color={isFocused ? "#2F2E41" : "#CCCCCC"} />}
         />
       )}
