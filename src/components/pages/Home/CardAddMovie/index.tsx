@@ -5,6 +5,8 @@ import { Product } from "@/types/products";
 import Image from "next/image";
 import { useContext } from "react";
 import { CartContext } from "@/contexts/CartContext";
+import { ItemsCart } from "@/types/context";
+import { formatPrice } from "@/utils/formatPrice";
 
 interface ICardAddMovieProps {
   movieData: Product;
@@ -13,18 +15,16 @@ interface ICardAddMovieProps {
 export const CardAddMovie = ({ movieData }: ICardAddMovieProps) => {
   const { itemsCart, setItemsCart } = useContext(CartContext);
 
-  const formattedPrice = movieData.price
-    .toFixed(2)
-    .toString()
-    .replace(".", ",");
-
   function addItemsToCart() {
     const existItemOnCart = itemsCart.some(
       (movie) => movie.id === movieData.id
     );
 
     if (!existItemOnCart)
-      return setItemsCart((prev) => [...prev, { ...movieData, amount: 1 }]);
+      return setItemsCart((prev: ItemsCart[]) => [
+        ...prev,
+        { ...movieData, amount: 1 },
+      ]);
 
     const itemsMapped = itemsCart.map((movie) => {
       if (movie.id !== movieData.id) return movie;
@@ -58,7 +58,7 @@ export const CardAddMovie = ({ movieData }: ICardAddMovieProps) => {
         height={188}
       />
       <h4>{movieData.title}</h4>
-      <p>R$ {formattedPrice}</p>
+      <p>R$ {formatPrice(movieData.price)}</p>
       <Button
         text={"ADICIONAR AO CARRINHO"}
         onClick={addItemsToCart}

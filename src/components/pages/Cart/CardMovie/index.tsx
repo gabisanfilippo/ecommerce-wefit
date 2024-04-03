@@ -8,23 +8,16 @@ import { IconPlusSign } from "@/assets/IconPlusSign";
 import { useContext } from "react";
 import { CartContext } from "@/contexts/CartContext";
 import { IconTrash } from "@/assets/IconTrash";
+import { formatPrice } from "@/utils/formatPrice";
 
 interface ICardMovieProps {
   movieData: ItemsCart;
 }
 
 export const CardMovie = ({ movieData }: ICardMovieProps) => {
-  const { itemsCart, setItemsCart } = useContext(CartContext);
+  const { setItemsCart } = useContext(CartContext);
 
-  const formattedPrice = movieData.price
-    .toFixed(2)
-    .toString()
-    .replace(".", ",");
-
-  const subtotal = (movieData.price * movieData.amount)
-    .toFixed(2)
-    .toString()
-    .replace(".", ",");
+  const subtotal = formatPrice(movieData.price * movieData.amount);
 
   function removeItem() {
     setItemsCart((prev: ItemsCart[]) =>
@@ -50,8 +43,6 @@ export const CardMovie = ({ movieData }: ICardMovieProps) => {
     );
   }
 
-  console.log(movieData.amount);
-
   return (
     <S.Container>
       <S.Flex>
@@ -63,7 +54,7 @@ export const CardMovie = ({ movieData }: ICardMovieProps) => {
         />
         <div>
           <h4>{movieData.title}</h4>
-          <p>R$ {formattedPrice}</p>
+          <p>R$ {formatPrice(movieData.price)}</p>
         </div>
       </S.Flex>
 

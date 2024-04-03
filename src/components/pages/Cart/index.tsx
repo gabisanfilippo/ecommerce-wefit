@@ -8,6 +8,7 @@ import { HeaderTable } from "./HeaderTable";
 import { CardMovie } from "./CardMovie";
 import { Button } from "@/components/ui/Button";
 import { useRouter } from "next/navigation";
+import { formatPrice } from "@/utils/formatPrice";
 
 export const CartList = () => {
   const router = useRouter();
@@ -16,8 +17,6 @@ export const CartList = () => {
   const total: number = itemsCart.reduce((accumulator, currentValue) => {
     return accumulator + currentValue.amount * currentValue.price;
   }, 0);
-
-  const formattedPrice = total.toFixed(2).toString().replace(".", ",");
 
   if (itemsCart.length === 0) return <Empty mode="back" />;
 
@@ -39,7 +38,7 @@ export const CartList = () => {
         />
         <div>
           <span>TOTAL</span>
-          <p>R$ {formattedPrice}</p>
+          <p>R$ {formatPrice(total)}</p>
         </div>
       </S.FooterContainer>
     </S.Container>
