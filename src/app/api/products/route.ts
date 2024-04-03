@@ -8,12 +8,9 @@ export async function GET(request: Request) {
 
   if (!title) return Response.json(products);
 
-  let response = products;
-
   const filteredProducts = products.products.filter((movie) =>
     movie.title.toLowerCase().includes(title.toLowerCase())
   );
 
-  response.products = filteredProducts;
-  return Response.json(response);
+  return Response.json({ products: filteredProducts });
 }
