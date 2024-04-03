@@ -14,6 +14,7 @@ interface IMoviesData {
 }
 
 export const SearchMovies = () => {
+  const [titleFilter, setTitleFilter] = useState("");
   const [moviesData, setMoviesData] = useState<IMoviesData>({
     isLoading: false,
     data: null,
@@ -25,7 +26,9 @@ export const SearchMovies = () => {
       setMoviesData((prev) => ({ ...prev, isLoading: true }));
 
       try {
-        const response = await api.get<ProductsList>("/products");
+        const response = await api.get<ProductsList>(
+          `/products?title=${titleFilter}`
+        );
         setMoviesData((prev) => ({
           ...prev,
           isError: false,
@@ -43,11 +46,11 @@ export const SearchMovies = () => {
     }
 
     getProducts();
-  }, []);
+  }, [titleFilter]);
 
   return (
     <>
-      <Input />
+      <Input changeFilter={(title) => setTitleFilter(title)} />
       <S.CardsContainer>
         {(!moviesData.data || moviesData.isLoading) && <>carregando...</>}
         {moviesData.isLoading && <>erro...</>}

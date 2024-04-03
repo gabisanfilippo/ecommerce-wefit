@@ -3,7 +3,11 @@ import * as S from "./style";
 import { useState } from "react";
 import { Button } from "../Button";
 
-export const Input = () => {
+interface IInputProps {
+  changeFilter: (title: string) => void;
+}
+
+export const Input = ({ changeFilter }: IInputProps) => {
   const [isFocused, setIsFocused] = useState(false);
 
   return (
@@ -14,7 +18,10 @@ export const Input = () => {
         id="search-input"
         placeholder="Buscar filme pelo nome"
         onFocus={() => setIsFocused((prev) => !prev)}
-        onBlur={() => setIsFocused((prev) => !prev)}
+        onBlur={(event) => {
+          changeFilter(event.target.value);
+          setIsFocused((prev) => !prev);
+        }}
       />
       <Button
         text=""
