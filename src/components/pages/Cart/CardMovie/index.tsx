@@ -43,21 +43,8 @@ export const CardMovie = ({ movieData }: ICardMovieProps) => {
     );
   }
 
-  return (
-    <S.Container>
-      <S.Flex>
-        <Image
-          src={movieData.image}
-          alt={"Filme " + movieData.title}
-          width={91}
-          height={114}
-        />
-        <div>
-          <h4>{movieData.title}</h4>
-          <p>R$ {formatPrice(movieData.price)}</p>
-        </div>
-      </S.Flex>
-
+  const Amount = () => {
+    return (
       <S.Flex>
         <Button
           text=""
@@ -78,15 +65,63 @@ export const CardMovie = ({ movieData }: ICardMovieProps) => {
           icon={<IconPlusSign />}
         />
       </S.Flex>
+    );
+  };
 
-      <p>R$ {subtotal}</p>
+  return (
+    <>
+      <S.ContainerDesktop>
+        <S.Flex>
+          <Image
+            src={movieData.image}
+            alt={"Filme " + movieData.title}
+            width={91}
+            height={114}
+          />
+          <div>
+            <S.Title>{movieData.title}</S.Title>
+            <S.Paragraph>R$ {formatPrice(movieData.price)}</S.Paragraph>
+          </div>
+        </S.Flex>
 
-      <Button
-        text=""
-        bgColor="transparent"
-        onClick={removeItem}
-        icon={<IconTrash />}
-      />
-    </S.Container>
+        <Amount />
+
+        <S.Paragraph>R$ {subtotal}</S.Paragraph>
+
+        <Button
+          text=""
+          bgColor="transparent"
+          onClick={removeItem}
+          icon={<IconTrash />}
+        />
+      </S.ContainerDesktop>
+      <S.ContainerMobile>
+        <Image
+          src={movieData.image}
+          alt={"Filme " + movieData.title}
+          width={64}
+          height={82}
+        />
+        <S.InfoContainer>
+          <S.FlexBetween>
+            <S.Title>{movieData.title}</S.Title>
+            <S.Paragraph>R$ {formatPrice(movieData.price)}</S.Paragraph>
+          </S.FlexBetween>
+          <S.FlexBetween>
+            <Amount />
+            <div>
+              <span>SUBTOTAL</span>
+              <S.Paragraph>R$ {subtotal}</S.Paragraph>
+            </div>
+          </S.FlexBetween>
+        </S.InfoContainer>
+        <Button
+          text=""
+          bgColor="transparent"
+          onClick={removeItem}
+          icon={<IconTrash />}
+        />
+      </S.ContainerMobile>
+    </>
   );
 };

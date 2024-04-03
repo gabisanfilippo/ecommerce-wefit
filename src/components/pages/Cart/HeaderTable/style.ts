@@ -11,4 +11,7 @@ export const Container = styled.div`
     text-align: left;
     color: #999999;
   }
+  @media (max-width: 900px) {
+    display: none;
+  }
 `;

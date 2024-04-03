@@ -38,6 +38,9 @@ export const CartContainer = styled.section`
       font-size: 14px;
       font-weight: 600;
       line-height: 19.07px;
+      @media (max-width: 400px) {
+        display: none;
+      }
     }
     p {
       font-size: 12px;
