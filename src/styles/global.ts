@@ -20,5 +20,9 @@ export const GlobalStyle = createGlobalStyle`
   button{
     background-color: transparent;
     cursor: pointer;
+    &:hover{
+      transition: opacity 0.2s;
+      opacity: 0.8;
+    }
   }
 `;

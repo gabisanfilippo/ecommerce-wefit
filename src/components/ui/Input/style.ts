@@ -8,6 +8,7 @@ export const Container = styled.div`
     padding: 8px;
     right: 8px;
     top: 8px;
+    width: max-content;
   }
 `;
 
