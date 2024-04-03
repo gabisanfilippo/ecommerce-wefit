@@ -1,12 +1,29 @@
 import { Button } from "@/components/ui/Button";
 import * as S from "./style";
 import { IconAddCart } from "@/assets/IconAddCart";
+import { Product } from "@/types/products";
+import Image from "next/image";
 
-export const CardAddMovie = () => {
+interface ICardAddMovieProps {
+  movieData: Product;
+}
+
+export const CardAddMovie = ({ movieData }: ICardAddMovieProps) => {
+  const formattedPrice = movieData.price
+    .toFixed(2)
+    .toString()
+    .replace(".", ",");
+
   return (
     <S.Container>
-      <h4>Viúva negra</h4>
-      <p>R$ 9,99</p>
+      <Image
+        src={movieData.image}
+        alt={"Filme " + movieData.title}
+        width={147}
+        height={188}
+      />
+      <h4>{movieData.title}</h4>
+      <p>R$ {formattedPrice}</p>
       <Button
         text={"ADICIONAR AO CARRINHO"}
         icon={
