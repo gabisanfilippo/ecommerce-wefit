@@ -1,16 +1,16 @@
 "use client";
 
-import { ReactNode } from "react";
+import { useContext } from "react";
 import * as S from "./style";
 import { useRouter } from "next/navigation";
 import { IconCart } from "@/assets/IconCart";
+import { IChildren } from "@/types/commom";
+import { CartContext } from "@/contexts/CartContext";
 
-interface IProps {
-  children: ReactNode;
-}
-
-export const Layout = ({ children }: IProps) => {
+export const Layout = ({ children }: IChildren) => {
   const router = useRouter();
+  const { amountItemsCart } = useContext(CartContext);
+
   return (
     <S.Main>
       <S.Header>
@@ -18,7 +18,7 @@ export const Layout = ({ children }: IProps) => {
         <S.CartContainer onClick={() => router.push("/cart")}>
           <div>
             <h3>Meu Carrinho</h3>
-            <p>0 itens</p>
+            <p>{amountItemsCart} itens</p>
           </div>
           <IconCart />
         </S.CartContainer>

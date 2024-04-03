@@ -1,15 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { useServerInsertedHTML } from "next/navigation";
 import { ServerStyleSheet, StyleSheetManager } from "styled-components";
 import { GlobalStyle } from "@/styles/global";
+import { CartContextProvider } from "@/contexts/CartContext";
+import { IChildren } from "@/types/commom";
 
-export default function StyledComponentsRegistry({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function StyledComponentsRegistry({ children }: IChildren) {
   const [styledComponentsStyleSheet] = useState(() => new ServerStyleSheet());
 
   useServerInsertedHTML(() => {
@@ -18,12 +16,20 @@ export default function StyledComponentsRegistry({
     return <>{styles}</>;
   });
 
-  if (typeof window !== "undefined") return <>{children}</>;
+  if (typeof window !== "undefined")
+    return (
+      <CartContextProvider>
+        <GlobalStyle />
+        {children}
+      </CartContextProvider>
+    );
 
   return (
-    <StyleSheetManager sheet={styledComponentsStyleSheet.instance}>
-      <GlobalStyle />
-      {children}
-    </StyleSheetManager>
+    <CartContextProvider>
+      <StyleSheetManager sheet={styledComponentsStyleSheet.instance}>
+        <GlobalStyle />
+        {children}
+      </StyleSheetManager>
+    </CartContextProvider>
   );
 }
