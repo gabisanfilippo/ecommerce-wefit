@@ -66,7 +66,6 @@ export const CardMovie = ({ movieData }: ICardMovieProps) => {
           icon={<IconMinusSign />}
         />
         <Input
-          showIcon={false}
           defaultValue={movieData.amount.toString()}
           handleValue={(value) => addAmount(Number(value))}
         />

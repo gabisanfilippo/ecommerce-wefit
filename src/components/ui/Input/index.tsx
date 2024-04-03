@@ -11,7 +11,11 @@ interface IInputProps {
   showIcon?: boolean;
 }
 
-export const Input = ({ defaultValue, handleValue, showIcon }: IInputProps) => {
+export const Input = ({
+  defaultValue,
+  handleValue,
+  showIcon = false,
+}: IInputProps) => {
   const [isFocused, setIsFocused] = useState(false);
   const [value, setValue] = useState(defaultValue || "");
 

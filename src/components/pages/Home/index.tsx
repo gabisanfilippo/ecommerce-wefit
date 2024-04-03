@@ -63,7 +63,7 @@ export const SearchMovies = () => {
 
   return (
     <>
-      <Input defaultValue={titleFilter} handleValue={handleValue} />
+      <Input defaultValue={titleFilter} handleValue={handleValue} showIcon />
       <S.CardsContainer>
         {(!moviesData.data || moviesData.isLoading) && <Loading />}
         {/* {moviesData.isLoading && <>erro...</>} */}
