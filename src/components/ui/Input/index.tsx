@@ -7,11 +7,11 @@ import { Button } from "../Button";
 
 interface IInputProps {
   defaultValue?: string | null;
-  onSearch?: (value: string) => void;
+  handleValue?: (value: string) => void;
   showIcon?: boolean;
 }
 
-export const Input = ({ defaultValue, onSearch, showIcon }: IInputProps) => {
+export const Input = ({ defaultValue, handleValue, showIcon }: IInputProps) => {
   const [isFocused, setIsFocused] = useState(false);
   const [value, setValue] = useState(defaultValue || "");
 
@@ -30,7 +30,7 @@ export const Input = ({ defaultValue, onSearch, showIcon }: IInputProps) => {
         onChange={(event) => setValue(event.target.value)}
         onFocus={() => setIsFocused((prev) => !prev)}
         onBlur={(event) => {
-          onSearch && onSearch(event.target.value);
+          handleValue && handleValue(event.target.value);
           setIsFocused((prev) => !prev);
         }}
       />

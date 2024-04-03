@@ -56,14 +56,14 @@ export const SearchMovies = () => {
     getProducts();
   }, [titleFilter]);
 
-  function onSearch(value: string) {
+  function handleValue(value: string) {
     if (value) router.push(`/search?title=${value}`);
     else router.push(`/`);
   }
 
   return (
     <>
-      <Input defaultValue={titleFilter} onSearch={onSearch} />
+      <Input defaultValue={titleFilter} handleValue={handleValue} />
       <S.CardsContainer>
         {(!moviesData.data || moviesData.isLoading) && <Loading />}
         {/* {moviesData.isLoading && <>erro...</>} */}

@@ -68,7 +68,7 @@ export const CardMovie = ({ movieData }: ICardMovieProps) => {
         <Input
           showIcon={false}
           defaultValue={movieData.amount.toString()}
-          onSearch={(value) => addAmount(Number(value))}
+          handleValue={(value) => addAmount(Number(value))}
         />
         <Button
           text=""
