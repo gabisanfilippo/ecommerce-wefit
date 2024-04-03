@@ -11,7 +11,7 @@ import { useRouter } from "next/navigation";
 
 export const CartList = () => {
   const router = useRouter();
-  const { itemsCart } = useContext(CartContext);
+  const { itemsCart, setItemsCart } = useContext(CartContext);
 
   const total: number = itemsCart.reduce((accumulator, currentValue) => {
     return accumulator + currentValue.amount * currentValue.price;
@@ -32,7 +32,10 @@ export const CartList = () => {
       <S.FooterContainer>
         <Button
           text="FINALIZAR PEDIDO"
-          onClick={() => router.push("/order-confirmed")}
+          onClick={() => {
+            setItemsCart([]);
+            router.push("/order-confirmed");
+          }}
         />
         <div>
           <span>TOTAL</span>
