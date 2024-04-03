@@ -71,10 +71,7 @@ export const SearchMovies = () => {
       />
       <S.CardsContainer>
         {(!moviesData.data || moviesData.isLoading) && <Loading />}
-        {/* {moviesData.isLoading && <>erro...</>} */}
-        {moviesData.data && moviesData.data.length === 0 && (
-          <Empty mode="reload" />
-        )}
+        {moviesData.data?.length === 0 && <Empty mode="reload" />}
         {moviesData.data?.map((movie, index) => {
           return (
             <CardAddMovie
