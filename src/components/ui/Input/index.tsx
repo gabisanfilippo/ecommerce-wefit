@@ -1,6 +1,6 @@
 "use client";
 
-import { IconSearch } from "@/assets/IconSearch";
+import { IconSearch } from "@/assets/icons/IconSearch";
 import * as S from "./style";
 import { ChangeEvent, useEffect, useState } from "react";
 import { Button } from "../Button";

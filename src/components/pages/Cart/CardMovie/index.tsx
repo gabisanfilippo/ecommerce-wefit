@@ -2,12 +2,12 @@ import Image from "next/image";
 import * as S from "./style";
 import { ItemsCart } from "@/types/context";
 import { Button } from "@/components/ui/Button";
-import { IconMinusSign } from "@/assets/IconMinusSign";
+import { IconMinusSign } from "@/assets/icons/IconMinusSign";
 import { Input } from "@/components/ui/Input";
-import { IconPlusSign } from "@/assets/IconPlusSign";
+import { IconPlusSign } from "@/assets/icons/IconPlusSign";
 import { useContext } from "react";
 import { CartContext } from "@/contexts/CartContext";
-import { IconTrash } from "@/assets/IconTrash";
+import { IconTrash } from "@/assets/icons/IconTrash";
 import { formatPrice } from "@/utils/formatPrice";
 
 interface ICardMovieProps {

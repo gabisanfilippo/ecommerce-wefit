@@ -1,4 +1,4 @@
-import { GifLoading } from "@/assets/GifLoading";
+import { GifLoading } from "@/assets/gifs/GifLoading";
 import * as S from "./style";
 
 export const Loading = () => {

@@ -3,7 +3,7 @@
 import { useContext } from "react";
 import * as S from "./style";
 import { useRouter } from "next/navigation";
-import { IconCart } from "@/assets/IconCart";
+import { IconCart } from "@/assets/icons/IconCart";
 import { IChildren } from "@/types/commom";
 import { CartContext } from "@/contexts/CartContext";
 

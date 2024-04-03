@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/Button";
 import * as S from "./style";
-import { IconAddCart } from "@/assets/IconAddCart";
+import { IconAddCart } from "@/assets/icons/IconAddCart";
 import { Product } from "@/types/products";
 import Image from "next/image";
 import { useContext } from "react";

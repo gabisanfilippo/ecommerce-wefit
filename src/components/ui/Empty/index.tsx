@@ -1,7 +1,7 @@
 import { useRouter } from "next/navigation";
 import * as S from "./style";
 import { Button } from "../Button";
-import { ImageRefresh } from "@/assets/ImageRefresh";
+import { ImageRefresh } from "@/assets/images/ImageRefresh";
 
 interface IEmptyProps {
   mode: "reload" | "back";

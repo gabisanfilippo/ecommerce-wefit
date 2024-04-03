@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/Button";
 import * as S from "./style";
 import { useRouter } from "next/navigation";
-import { ImageConfirmed } from "@/assets/ImageConfirmed";
+import { ImageConfirmed } from "@/assets/images/ImageConfirmed";
 
 export const ConfirmedScreen = () => {
   const router = useRouter();

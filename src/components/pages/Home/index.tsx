@@ -7,7 +7,7 @@ import { api } from "@/services/api";
 import { Product, ProductsList } from "@/types/products";
 import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { GifLoading } from "@/assets/GifLoading";
+import { GifLoading } from "@/assets/gifs/GifLoading";
 import { Loading } from "@/components/ui/Loading";
 import { Empty } from "@/components/ui/Empty";
 
