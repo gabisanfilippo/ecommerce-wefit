@@ -1,9 +1,5 @@
-import Image from "next/image";
+import { SearchMovies } from "@/components/pages/Home";
 
 export default function Home() {
-  return (
-    <main>
-      <p>oi</p>
-    </main>
-  );
+  return <SearchMovies />;
 }
