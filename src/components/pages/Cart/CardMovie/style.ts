@@ -3,20 +3,20 @@ import styled from "styled-components";
 export const ContainerDesktop = styled.article`
   display: grid;
   grid-template-columns: 6fr 6fr 6fr 1fr;
-  gap: 16px;
+  gap: 1rem;
   align-items: center;
   button {
     width: max-content;
-    padding: 8px 0;
+    padding: 0.5rem 0;
   }
   input {
     border: 1px solid #d9d9d9;
     width: 62px;
     height: 26px;
-    padding: 0 16px;
+    padding: 0 1rem;
     border-radius: 4px;
     text-align: center;
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 400;
     line-height: 19.07px;
   }
@@ -26,8 +26,8 @@ export const ContainerDesktop = styled.article`
 `;
 
 export const Title = styled.h4`
-  margin-bottom: 8px;
-  font-size: 14px;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
   font-weight: 700;
   line-height: 19.07px;
   color: #2f2e41;
@@ -42,7 +42,7 @@ export const Paragraph = styled.p`
 export const Flex = styled.div`
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 1rem;
 
   div {
     width: max-content;
@@ -51,30 +51,30 @@ export const Flex = styled.div`
 
 export const ContainerMobile = styled.article`
   display: flex;
-  gap: 24px;
+  gap: 1.5rem;
   justify-content: space-between;
   button {
     width: max-content;
-    padding: 8px 0;
+    padding: 0.5rem 0;
   }
   input {
     border: 1px solid #d9d9d9;
     width: 62px;
     height: 26px;
-    padding: 0 16px;
+    padding: 0 1rem;
     border-radius: 4px;
     text-align: center;
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 400;
     line-height: 19.07px;
   }
   span {
-    font-size: 12px;
+    font-size: 0.75rem;
     font-weight: 700;
     line-height: 16.34px;
     text-align: left;
     color: #999999;
-    margin-bottom: -16px;
+    margin-bottom: -1rem;
   }
   @media (min-width: 901px) {
     display: none;
@@ -84,13 +84,13 @@ export const ContainerMobile = styled.article`
 export const FlexBetween = styled.div`
   display: flex;
   justify-content: space-between;
-  gap: 16px;
+  gap: 1rem;
 `;
 
 export const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 1rem;
   width: 50%;
   @media (max-width: 600px) {
     width: 100%;

@@ -2,19 +2,19 @@ import styled from "styled-components";
 
 export const Container = styled.section`
   background-color: white;
-  padding: 24px;
+  padding: 1.5rem;
   border-radius: 4px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 1.5rem;
 `;
 
 export const CardsContainer = styled.div`
   border-bottom: 1px solid #999999;
-  padding-bottom: 24px;
+  padding-bottom: 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 1rem;
 `;
 
 export const FooterContainer = styled.div`
@@ -27,15 +27,15 @@ export const FooterContainer = styled.div`
   div {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 1rem;
     p {
-      font-size: 24px;
+      font-size: 1.5rem;
       font-weight: 700;
-      line-height: 32.68px;
+      line-height: 32.6.5rem;
       color: #2f2e41;
     }
     span {
-      font-size: 14px;
+      font-size: 0.875rem;
       font-weight: 700;
       line-height: 19.07px;
       color: #999999;

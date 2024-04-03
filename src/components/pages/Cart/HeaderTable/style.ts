@@ -3,9 +3,9 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: grid;
   grid-template-columns: 6fr 6fr 6fr 1fr;
-  gap: 16px;
+  gap: 1rem;
   h5 {
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 700;
     line-height: 19.07px;
     text-align: left;

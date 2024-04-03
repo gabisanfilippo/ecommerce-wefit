@@ -5,9 +5,9 @@ export const Container = styled.div`
   width: 100%;
   button {
     position: absolute;
-    padding: 8px;
-    right: 8px;
-    top: 8px;
+    padding: 0.5rem;
+    right: 0.5rem;
+    top: 0.5rem;
     width: max-content;
   }
 `;
@@ -15,9 +15,9 @@ export const Container = styled.div`
 export const Input = styled.input`
   width: 100%;
   height: 56px;
-  padding: 16px 32px 16px 16px;
-  gap: 16px;
-  border-radius: 8px;
+  padding: 1rem 32px 1rem 1rem;
+  gap: 1rem;
+  border-radius: 0.5rem;
   border: 2px solid white;
   &:focus {
     border-color: #009edd;

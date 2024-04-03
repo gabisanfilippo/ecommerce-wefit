@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const Main = styled.main`
   display: flex;
   flex-direction: column;
-  margin-bottom: 5rem;
-  padding: 0 16px;
+  margin-bottom: 3rem;
+  padding: 0 1rem;
 `;
 
 export const Header = styled.header`
@@ -12,14 +12,14 @@ export const Header = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 88px;
+  height: 80.5rem;
   * {
     color: white;
   }
   h1 {
     font-size: 20px;
     font-weight: 700;
-    line-height: 27.24px;
+    line-height: 27.1.5rem;
     padding: 1rem 0;
     cursor: pointer;
   }
@@ -28,14 +28,14 @@ export const Header = styled.header`
 export const CartContainer = styled.section`
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
   cursor: pointer;
   div {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     h3 {
-      font-size: 14px;
+      font-size: 0.875rem;
       font-weight: 600;
       line-height: 19.07px;
       @media (max-width: 400px) {
@@ -43,7 +43,7 @@ export const CartContainer = styled.section`
       }
     }
     p {
-      font-size: 12px;
+      font-size: 0.75rem;
       font-weight: 600;
       line-height: 16.34px;
       color: #999999;
