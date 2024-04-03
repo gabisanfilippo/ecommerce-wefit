@@ -7,6 +7,9 @@ import { api } from "@/services/api";
 import { Product, ProductsList } from "@/types/products";
 import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { GifLoading } from "@/assets/GifLoading";
+import { Loading } from "@/components/ui/Loading";
+import { Empty } from "@/components/ui/Empty";
 
 interface IMoviesData {
   isLoading: boolean;
@@ -62,9 +65,11 @@ export const SearchMovies = () => {
     <>
       <Input defaultValue={titleFilter} onSearch={onSearch} />
       <S.CardsContainer>
-        {(!moviesData.data || moviesData.isLoading) && <>carregando...</>}
-        {moviesData.isLoading && <>erro...</>}
-        {moviesData.data && moviesData.data.length === 0 && <>vazio</>}
+        {(!moviesData.data || moviesData.isLoading) && <Loading />}
+        {/* {moviesData.isLoading && <>erro...</>} */}
+        {moviesData.data && moviesData.data.length === 0 && (
+          <Empty mode="reload" />
+        )}
         {moviesData.data?.map((movie, index) => {
           return (
             <CardAddMovie
