@@ -8,7 +8,7 @@ export const Container = styled.article`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 8px;
   border-radius: 4px;
   opacity: 0px;
   h4 {
