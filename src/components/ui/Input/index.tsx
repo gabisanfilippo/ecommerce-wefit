@@ -2,14 +2,13 @@ import { IconSearch } from "@/assets/IconSearch";
 import * as S from "./style";
 import { useState } from "react";
 import { Button } from "../Button";
-import { useRouter } from "next/navigation";
 
 interface IInputProps {
   defaultValue?: string | null;
+  onSearch?: (value: string) => void;
 }
 
-export const Input = ({ defaultValue }: IInputProps) => {
-  const router = useRouter();
+export const Input = ({ defaultValue, onSearch }: IInputProps) => {
   const [isFocused, setIsFocused] = useState(false);
 
   return (
@@ -22,9 +21,7 @@ export const Input = ({ defaultValue }: IInputProps) => {
         defaultValue={defaultValue ? defaultValue : ""}
         onFocus={() => setIsFocused((prev) => !prev)}
         onBlur={(event) => {
-          const value = event.target.value;
-          if (value) router.push(`/search?title=${event.target.value}`);
-          else router.push(`/`);
+          onSearch && onSearch(event.target.value);
           setIsFocused((prev) => !prev);
         }}
       />
