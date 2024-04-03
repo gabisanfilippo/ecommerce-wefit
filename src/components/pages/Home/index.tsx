@@ -6,6 +6,7 @@ import { CardAddMovie } from "./CardAddMovie";
 import { api } from "@/services/api";
 import { Product, ProductsList } from "@/types/products";
 import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 
 interface IMoviesData {
   isLoading: boolean;
@@ -14,7 +15,9 @@ interface IMoviesData {
 }
 
 export const SearchMovies = () => {
-  const [titleFilter, setTitleFilter] = useState("");
+  const searchParams = useSearchParams();
+  const titleFilter = searchParams.get("title");
+
   const [moviesData, setMoviesData] = useState<IMoviesData>({
     isLoading: false,
     data: null,
@@ -27,8 +30,9 @@ export const SearchMovies = () => {
 
       try {
         const response = await api.get<ProductsList>(
-          `/products?title=${titleFilter}`
+          `/products?title=${titleFilter || ""}`
         );
+
         setMoviesData((prev) => ({
           ...prev,
           isError: false,
@@ -50,7 +54,7 @@ export const SearchMovies = () => {
 
   return (
     <>
-      <Input changeFilter={(title) => setTitleFilter(title)} />
+      <Input defaultValue={titleFilter} />
       <S.CardsContainer>
         {(!moviesData.data || moviesData.isLoading) && <>carregando...</>}
         {moviesData.isLoading && <>erro...</>}

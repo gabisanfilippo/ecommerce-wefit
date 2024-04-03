@@ -2,12 +2,14 @@ import { IconSearch } from "@/assets/IconSearch";
 import * as S from "./style";
 import { useState } from "react";
 import { Button } from "../Button";
+import { useRouter } from "next/navigation";
 
 interface IInputProps {
-  changeFilter: (title: string) => void;
+  defaultValue?: string | null;
 }
 
-export const Input = ({ changeFilter }: IInputProps) => {
+export const Input = ({ defaultValue }: IInputProps) => {
+  const router = useRouter();
   const [isFocused, setIsFocused] = useState(false);
 
   return (
@@ -17,9 +19,12 @@ export const Input = ({ changeFilter }: IInputProps) => {
         name="search"
         id="search-input"
         placeholder="Buscar filme pelo nome"
+        defaultValue={defaultValue ? defaultValue : ""}
         onFocus={() => setIsFocused((prev) => !prev)}
         onBlur={(event) => {
-          changeFilter(event.target.value);
+          const value = event.target.value;
+          if (value) router.push(`/search?title=${event.target.value}`);
+          else router.push(`/`);
           setIsFocused((prev) => !prev);
         }}
       />
