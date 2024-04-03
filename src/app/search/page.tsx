@@ -1,5 +1,5 @@
 import { SearchMovies } from "@/components/pages/Home";
 
-export default function Home() {
-  return <SearchMovies />;
+export default function Search(props: any) {
+  return <SearchMovies pageProps={props} />;
 }
