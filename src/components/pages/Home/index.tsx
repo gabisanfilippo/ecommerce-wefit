@@ -16,11 +16,10 @@ export const SearchPage = ({ pageProps }: IPageProps) => {
   const titleFilter = pageProps?.searchParams?.title;
 
   const [moviesData, setMoviesData] = useState<Product[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   async function getProducts() {
     try {
-      setIsLoading(true);
       const response = await api.listProducts(titleFilter);
       setMoviesData(response.data.products);
     } catch (error: any) {
