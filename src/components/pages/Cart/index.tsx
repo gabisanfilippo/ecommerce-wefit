@@ -25,7 +25,7 @@ export const CartPage = () => {
       <HeaderTable />
       <S.CardsContainer>
         {itemsCart.map((movie) => {
-          return <CardMovie key={"cartCard" + movie.id} movieData={movie} />;
+          return <CardMovie key={"cartCard" + movie.id} {...movie} />;
         })}
       </S.CardsContainer>
       <S.FooterContainer>
