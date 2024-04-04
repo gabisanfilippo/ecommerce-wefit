@@ -5,7 +5,7 @@ import * as S from "./style";
 import { useRouter } from "next/navigation";
 import { ImageConfirmed } from "@/assets/images/ImageConfirmed";
 
-export const ConfirmedScreen = () => {
+export const ConfirmedPage = () => {
   const router = useRouter();
 
   return (

@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/Button";
 import { useRouter } from "next/navigation";
 import { formatPrice } from "@/utils/formatPrice";
 
-export const CartList = () => {
+export const CartPage = () => {
   const router = useRouter();
   const { itemsCart, setItemsCart } = useContext(CartContext);
 

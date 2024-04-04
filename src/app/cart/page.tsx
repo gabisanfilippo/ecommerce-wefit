@@ -1,5 +1,5 @@
-import { CartList } from "@/components/pages/Cart";
+import { CartPage } from "@/components/pages/Cart";
 
 export default function Cart() {
-  return <CartList />;
+  return <CartPage />;
 }

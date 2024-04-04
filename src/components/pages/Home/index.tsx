@@ -11,7 +11,7 @@ import { Loading } from "@/components/ui/Loading";
 import { Empty } from "@/components/ui/Empty";
 import { IPageProps } from "@/types/commom";
 
-export const SearchMovies = ({ pageProps }: IPageProps) => {
+export const SearchPage = ({ pageProps }: IPageProps) => {
   const router = useRouter();
   const titleFilter = pageProps?.searchParams?.title;
 
