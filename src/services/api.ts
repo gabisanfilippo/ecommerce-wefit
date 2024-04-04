@@ -15,7 +15,7 @@ class API implements IApiClass {
   }
 
   public async listProducts(
-    titleFilter: string
+    titleFilter?: string
   ): Promise<AxiosResponse<ProductsList, any>> {
     const productList = await this.api.get<ProductsList>(
       `/products?title=${titleFilter || ""}`

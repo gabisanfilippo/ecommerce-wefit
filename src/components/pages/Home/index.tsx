@@ -9,10 +9,11 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Loading } from "@/components/ui/Loading";
 import { Empty } from "@/components/ui/Empty";
+import { IPageProps } from "@/types/commom";
 
-export const SearchMovies = (pageProps: any) => {
+export const SearchMovies = ({ pageProps }: IPageProps) => {
   const router = useRouter();
-  const titleFilter = pageProps.pageProps.searchParams?.title;
+  const titleFilter = pageProps?.searchParams?.title;
 
   const [moviesData, setMoviesData] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
