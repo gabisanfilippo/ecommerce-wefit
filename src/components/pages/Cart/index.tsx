@@ -12,7 +12,7 @@ import { formatPrice } from "@/utils/formatPrice";
 
 export const CartPage = () => {
   const router = useRouter();
-  const { itemsCart, setItemsCart } = useContext(CartContext);
+  const { itemsCart } = useContext(CartContext);
 
   const total: number = itemsCart.reduce((accumulator, currentValue) => {
     return accumulator + currentValue.amount * currentValue.price;
@@ -31,10 +31,7 @@ export const CartPage = () => {
       <S.FooterContainer>
         <Button
           text="FINALIZAR PEDIDO"
-          onClick={() => {
-            setItemsCart([]);
-            router.push("/order-confirmed");
-          }}
+          onClick={() => router.push("/order-confirmed")}
         />
         <div>
           <span>TOTAL</span>
