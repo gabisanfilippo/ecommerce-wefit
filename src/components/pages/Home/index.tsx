@@ -10,37 +10,26 @@ import { useRouter } from "next/navigation";
 import { Loading } from "@/components/ui/Loading";
 import { Empty } from "@/components/ui/Empty";
 
-interface IMoviesData {
-  isLoading: boolean;
-  data: null | Product[];
-}
-
 export const SearchMovies = (pageProps: any) => {
   const router = useRouter();
   const titleFilter = pageProps.pageProps.searchParams?.title;
 
-  const [moviesData, setMoviesData] = useState<IMoviesData>({
-    isLoading: false,
-    data: null,
-  });
+  const [moviesData, setMoviesData] = useState<Product[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  async function getProducts() {
+    try {
+      setIsLoading(true);
+      const response = await api.listProducts(titleFilter);
+      setMoviesData(response.data.products);
+    } catch (error: any) {
+      throw new Error(error.message);
+    } finally {
+      setIsLoading(false);
+    }
+  }
 
   useEffect(() => {
-    async function getProducts() {
-      setMoviesData((prev) => ({ ...prev, isLoading: true }));
-
-      try {
-        const response = await api.listProducts(titleFilter);
-        setMoviesData((prev) => ({
-          ...prev,
-          data: response.data.products,
-        }));
-      } catch (error: any) {
-        throw new Error(error.message);
-      } finally {
-        setMoviesData((prev) => ({ ...prev, isLoading: false }));
-      }
-    }
-
     getProducts();
   }, [titleFilter]);
 
@@ -58,9 +47,9 @@ export const SearchMovies = (pageProps: any) => {
         showIcon
       />
       <S.CardsContainer>
-        {(!moviesData.data || moviesData.isLoading) && <Loading />}
-        {moviesData.data?.length === 0 && <Empty mode="reload" />}
-        {moviesData.data?.map((movie, index) => {
+        {isLoading && <Loading />}
+        {moviesData.length === 0 && !isLoading && <Empty mode="reload" />}
+        {moviesData.map((movie, index) => {
           return (
             <CardAddMovie
               movieData={movie}
